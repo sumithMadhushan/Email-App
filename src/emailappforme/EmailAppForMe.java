@@ -21,6 +21,7 @@ public class EmailAppForMe {
         Email email = new Email();
         email.setVisible(true);
         email.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }
     
 }

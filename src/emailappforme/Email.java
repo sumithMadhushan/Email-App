@@ -57,23 +57,37 @@ public class Email extends javax.swing.JFrame {
         txtMyPassword = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         txtReceiverEmailAddress = new javax.swing.JTextField();
+        btnAttachFile = new javax.swing.JButton();
+        txtFilePath = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Email Application");
+        setBackground(new java.awt.Color(51, 51, 51));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Email sending App"));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jLabel1.setBackground(new java.awt.Color(0, 153, 204));
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel1.setText("Your Email Address :");
 
+        jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel2.setText("Subject :");
 
+        jLabel3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel3.setText("Message :");
 
+        txtMyEmailAddress.setBackground(new java.awt.Color(204, 204, 255));
+
+        txtSubject.setBackground(new java.awt.Color(204, 204, 255));
+
+        txtmessage.setBackground(new java.awt.Color(204, 204, 255));
         txtmessage.setColumns(20);
         txtmessage.setRows(5);
         jScrollPane1.setViewportView(txtmessage);
@@ -88,9 +102,28 @@ public class Email extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel5.setText("Your Password :");
 
+        txtMyPassword.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel4.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel4.setText("Receiver Email Address :");
+
+        txtReceiverEmailAddress.setBackground(new java.awt.Color(204, 204, 255));
+
+        btnAttachFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Editing-Attach-icon.png"))); // NOI18N
+        btnAttachFile.setText("Attachments");
+        btnAttachFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAttachFileActionPerformed(evt);
+            }
+        });
+
+        txtFilePath.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel6.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        jLabel6.setText("File Path :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,17 +136,22 @@ public class Email extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtMyEmailAddress)
-                    .addComponent(txtSubject)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                    .addComponent(txtMyPassword)
-                    .addComponent(txtReceiverEmailAddress))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6))
+                .addGap(85, 85, 85)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAttachFile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFilePath, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMyEmailAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSubject, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMyPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtReceiverEmailAddress, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,23 +164,29 @@ public class Email extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtMyPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtReceiverEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(40, 40, 40)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(38, 38, 38)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton2)
-                .addGap(32, 32, 32))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAttachFile)
+                    .addComponent(jButton2))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,39 +196,44 @@ public class Email extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(761, 585));
+        setSize(new java.awt.Dimension(771, 607));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        timer.start();//start the timer
-        //Email sendEmail = new Email();//crete the Email object
-        String receiverMailAddress = txtReceiverEmailAddress.getText().toString();//get the receiver email from text field
-        //System.out.println(receiverEmail.toString());
-        String subject = txtSubject.getText().toString();//get the subject given in the text field
-        String message = txtmessage.getText().toString();//get the message body given in the text field
-
-        boolean result = isValidEmailAddress(receiverMailAddress);
-
-        if (result == true) {
-            //MailSender mailSender = new MailSender(receiverMailAddress, subject, message);
-            SendEmail email = new SendEmail();
-            value = email.isEmailSend(receiverMailAddress, subject, message);
-
+        if (!validateFields()) {//if give text fields emty it is a error
+            return;
         } else {
-            JOptionPane.showMessageDialog(this, "Incorrect email address");
+            timer.start();//start the timer
+            //Email sendEmail = new Email();//crete the Email object
+            String receiverMailAddress = txtReceiverEmailAddress.getText().toString();//get the receiver email from text field
+            //System.out.println(receiverEmail.toString());
+            String subject = txtSubject.getText().toString();//get the subject given in the text field
+            String message = txtmessage.getText().toString();//get the message body given in the text field
+
+            boolean result = isValidEmailAddress(receiverMailAddress);
+
+            if (result == true) {
+                //MailSender mailSender = new MailSender(receiverMailAddress, subject, message);
+                SendEmail email = new SendEmail();
+                value = email.isEmailSend(receiverMailAddress, subject, message);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect email address");
+            }
         }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public class Progreso implements ActionListener {
@@ -201,10 +250,11 @@ public class Email extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Email send successfully");
                     progressBar.setValue(0);//set the bar to 0
                     //txtMyEmailAddress.setText("");//set the email text ""
-                    //txtMyPassword.setText("");
+                    txtMyPassword.setText("");
                     txtReceiverEmailAddress.setText("");
                     txtSubject.setText("");
                     txtmessage.setText("");
+                    txtFilePath.setText("");
                 } else {
                     JOptionPane.showMessageDialog(null, "Email did not sent. Try Again.!");
                 }
@@ -218,6 +268,15 @@ public class Email extends javax.swing.JFrame {
         // TODO add your handling code here:
         timer = new Timer(50, new Progreso());
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnAttachFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachFileActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser= new JFileChooser();
+        chooser.showOpenDialog(null);
+        File attachFile = chooser.getSelectedFile();
+        filePath=attachFile.getAbsolutePath();
+        txtFilePath.setText(filePath);
+    }//GEN-LAST:event_btnAttachFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,20 +316,23 @@ public class Email extends javax.swing.JFrame {
     private Timer timer;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAttachFile;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JProgressBar progressBar;
+    public static javax.swing.JTextField txtFilePath;
     public static javax.swing.JTextField txtMyEmailAddress;
     public static javax.swing.JPasswordField txtMyPassword;
-    private javax.swing.JTextField txtReceiverEmailAddress;
-    private javax.swing.JTextField txtSubject;
-    private javax.swing.JTextArea txtmessage;
+    public static javax.swing.JTextField txtReceiverEmailAddress;
+    public static javax.swing.JTextField txtSubject;
+    public static javax.swing.JTextArea txtmessage;
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
@@ -289,4 +351,34 @@ public class Email extends javax.swing.JFrame {
         return result;
     }
 
+    private static boolean validateFields() {
+        if (txtMyEmailAddress.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter your address!", "Error", JOptionPane.ERROR_MESSAGE);
+            //fieldTo.requestFocus();
+            return false;
+        }
+        if (txtMyPassword.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter your password!", "Error", JOptionPane.ERROR_MESSAGE);
+            //fieldSubject.requestFocus();
+            return false;
+        }
+        if (txtReceiverEmailAddress.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter receiver Address!", "Error", JOptionPane.ERROR_MESSAGE);
+            //fieldSubject.requestFocus();
+            return false;
+        }
+        if (txtSubject.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter subject!", "Error", JOptionPane.ERROR_MESSAGE);
+            //fieldSubject.requestFocus();
+            return false;
+        }
+
+        if (txtmessage.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter message!", "Error", JOptionPane.ERROR_MESSAGE);
+            //textAreaMessage.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
 }
